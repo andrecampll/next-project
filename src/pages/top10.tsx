@@ -15,14 +15,14 @@ export default function top10({ products }: ITop10Props) {
       <h1>Top 10</h1>
 
       <ul>
-          {products.map(product => {
-            return (
-              <li key={product.id}>
-                {product.title}
-              </li>
-            );
-          })}
-        </ul>
+        {products.map(product => {
+          return (
+            <li key={product.id}>
+              {product.title}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   )
 }
@@ -35,6 +35,7 @@ export const getStaticProps: GetStaticProps<ITop10Props> = async (context) => {
   return {
     props: {
       products,
-    }
+    },
+    revalidate: 5,
   }
 }
